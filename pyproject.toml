@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nmaping"
-version = "0.1.1"  # <-- আমরা নতুন করে পুশ দিচ্ছি তাই ভার্সন পরিবর্তন করে 0.1.1 করা হয়েছে
+version = "1.1"  # <-- আমরা নতুন করে পুশ দিচ্ছি তাই ভার্সন পরিবর্তন করে 0.1.1 করা হয়েছে
 authors = [
     { name="Abu Tanim", email="mrtanvai@gmail.com" },
 ]
