@@ -4,30 +4,32 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nmaping"
-version = "1.2"  # <-- আমরা নতুন মেটাডেটা পুশ করছি, তাই ভার্সনটি বাড়িয়ে ১.২ করে দিলাম
+version = "1.2"  # নতুন ভার্সন ১.৫ দিন
 authors = [
     { name="Abu Tanim", email="mrtanvai@gmail.com" },
 ]
 description = "An automation and network scanning utility tool."
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.13" # যেহেতু .so ফাইলটি শুধু পাইথন ৩.১৩ তে চলবে
 license = { text = "Custom License" }
 
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
+    "Operating System :: POSIX :: Linux",
 ]
 
-# PyPI পেজে 'Verified details' আনার জন্য আপনার গিটহাবের লিংকসমূহ
 [project.urls]
 Homepage = "https://github.com/mrtan-official/Nmap-scaning"
-Bug-Tracker = "https://github.com/mrtan-official/Nmap-scaning/issues"
 
-# আপনার nmap.py মডিউলটি প্যাকেজে অন্তর্ভুক্ত করার নিয়ম
+# সেটআপুলসকে অটোমেটিক nmaping ফোল্ডারটি খুঁজতে বলা হচ্ছে
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["nmap.py"]
+include = ["nmaping*"]
 
-# কালিতে সরাসরি 'nmaping' কমান্ড দিয়ে রান করানোর গ্লোবাল স্ক্রিপ্ট
+# প্যাকেজের ভেতরের সব .so ফাইল অন্তর্ভুক্ত করার নির্দেশ
+[tool.setuptools.package-data]
+nmaping = ["*.so"]
+
+# কালিতে সরাসরি রান করার জন্য স্ক্রিপ্ট এন্ট্রি পয়েন্ট
 [project.scripts]
-nmaping = "nmap:menu"
+nmaping = "nmaping.nmap:menu"
